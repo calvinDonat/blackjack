@@ -618,9 +618,9 @@ class Background extends React.Component {
           <Info />
           <Dealer
             dealerCards={this.state.dealerCards}
-            dealerTotal={this.state.dealerTotal}
             coverCard={this.state.coverCard}
             isBust={this.state.dealerBust}
+            dealerTotal={this.state.dealerTotal}
           />
         </div>
         <div className='bettingSection'>

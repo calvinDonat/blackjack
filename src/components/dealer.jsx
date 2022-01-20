@@ -14,7 +14,6 @@ class Dealer extends React.Component {
             cardId={`dealer${card.dealerId}`}
           />
         ))}
-        <div id='dealerTotal'>{this.props.dealerTotal}</div>
         <img
           src={require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/back_of_card.png')}
           id='coverCard'
@@ -23,7 +22,10 @@ class Dealer extends React.Component {
         <div id='dealerBust' style={this.props.isBust}>
           BUST!
         </div>
-        <img src={Deck} className='deck' />
+        <div className='dealerTotalDeck'>
+          <img src={Deck} className='deck' />
+          <div id='dealerTotal'>{this.props.dealerTotal}</div>
+        </div>
       </div>
     );
   }

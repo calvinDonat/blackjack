@@ -2,17 +2,29 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  max-width: 1200px;
   margin: 16px;
-  /* height: 1024px;
-  width: 1440px; */
   border: 3px solid #3f6e3e;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+@media screen and (max-width: 900px) {
+  .info {
+    display: none;
+  }
+}
+
+.dealerTotalDeck {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .dealerSection {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
 .bettingSection {
@@ -38,15 +50,6 @@ body {
 
 .textAlign {
   text-align: center;
-}
-
-.test {
-  /* position: absolute; */
-  /* top: 923px; */
-  /* left: 1339px; */
-  background-color: white;
-  /* height: 100px; */
-  /* width: 100px; */
 }
 
 .playerCards {
@@ -93,15 +96,22 @@ body {
 }
 
 .dealer {
+  position: relative;
   display: flex;
   background-color: pink;
   flex-grow: 1;
   justify-content: flex-end;
-  /* position: absolute; */
-  /* height: 309px;
-  width: 937px;
-  left: 503px;
-  top: 0px; */
+  padding-right: 16px;
+}
+
+.deck {
+  position: relative;
+  display: flex;
+  align-self: center;
+  height: 259.3199768066406px;
+  width: 199.34359741210938px;
+  /* margin-right: 300px; */
+  background-color: #4d894c;
 }
 
 .info {
@@ -130,52 +140,43 @@ li {
   font-size: 15px;
 }
 
-.deck {
-  /* position: absolute; */
-  height: 259.3199768066406px;
-  width: 199.34359741210938px;
-  left: 611px;
-  top: 44.84002685546875px;
-  background-color: #4d894c;
-}
-
 .card {
   height: 245px;
   width: 175px;
 }
 
 #dealer1 {
-  /* position: absolute; */
+  position: absolute;
   left: 295px;
   top: 50px;
 }
 
 #dealer2 {
-  /* position: absolute; */
+  position: absolute;
   left: 70px;
   top: 50px;
 }
 
 #dealer3 {
-  /* position: absolute; */
+  position: absolute;
   left: 26px;
   top: 83px;
 }
 
 #dealer4 {
-  /* position: absolute; */
+  position: absolute;
   left: 251px;
   top: 83px;
 }
 
 #dealer5 {
-  /* position: absolute; */
+  position: absolute;
   left: 70px;
   top: 116px;
 }
 
 #dealer6 {
-  /* position: absolute; */
+  position: absolute;
   left: 295px;
   top: 116px;
 }
@@ -481,9 +482,8 @@ li {
 }
 
 #coverCard {
-  /* position: absolute; */
-  left: 70px;
-  top: 50px;
+  height: 245px;
+  width: 175px;
 }
 
 #dealerTotal {

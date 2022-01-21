@@ -1,40 +1,15 @@
+/* misc. */
 .background {
   position: relative;
   display: flex;
   flex-direction: column;
-  max-width: 1200px;
+  max-width: 2000px;
+  min-width: 1200px;
+  min-height: 950px;
   margin: 16px;
   border: 3px solid #3f6e3e;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-@media screen and (max-width: 900px) {
-  .info {
-    display: none;
-  }
-}
-
-.dealerTotalDeck {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.dealerSection {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.bettingSection {
-  display: flex;
-  flex-direction: row;
-}
-
-.playerSection {
-  display: flex;
-  flex-direction: row;
 }
 
 body {
@@ -52,76 +27,24 @@ body {
   text-align: center;
 }
 
-.playerCards {
-  /* position: absolute; */
-  /* height: 420px; */
-  /* width: 660px; */
-  /* left: 208px; */
-  /* top: 563px; */
-  background-color: #4d894c;
-  border: 10px solid rgba(255, 255, 255, 0.75);
-  border-radius: 10px;
+.card {
+  height: 245px;
+  width: 175px;
 }
 
-.player {
-  /* position: absolute; */
-  /* height: 481px; */
-  /* width: 888px; */
-  /* left: 0px; */
-  /* top: 543px; */
-}
+/* ________________________________________________________________________________________ */
 
-.betting {
-  /* position: absolute; */
-  /* height: 400px; */
-  /* width: 800px; */
-  /* left: 332px; */
-  /* top: 572px; */
-  background: #4d894c;
-  border: 2px solid black;
-  border-radius: 10px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
-}
-
-#totalMoney {
-  /* position: absolute; */
-}
-
-.currentBet {
-  /* position: absolute; */
-  /* height: 214px;
-  width: 536px;
-  left: 510px;
-  top: 329px; */
-}
-
-.dealer {
-  position: relative;
-  display: flex;
-  background-color: pink;
-  flex-grow: 1;
-  justify-content: flex-end;
-  padding-right: 16px;
-}
-
-.deck {
-  position: relative;
-  display: flex;
-  align-self: center;
-  height: 259.3199768066406px;
-  width: 199.34359741210938px;
-  /* margin-right: 300px; */
-  background-color: #4d894c;
+/* info and rules */
+@media screen and (max-width: 900px) {
+  .info {
+    display: none;
+  }
 }
 
 .info {
   max-width: 500px;
   min-width: 400px;
-  /* position: absolute; */
-  /* height: 543px;
-  width: 503px;
-  left: 0px;
-  top: 0px; */
+  margin-top: 20px;
 }
 
 p {
@@ -140,53 +63,220 @@ li {
   font-size: 15px;
 }
 
-.card {
-  height: 245px;
-  width: 175px;
+/* ________________________________________________________________________________________ */
+
+/* dealer and deck */
+.dealerTotalDeck {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+.dealerSection {
+  display: flex;
+  flex-direction: row;
+}
+
+.dealer {
+  position: relative;
+  display: flex;
+  background-color: #4d894c;
+  flex-grow: 1;
+  justify-content: space-around;
+  padding-top: 32px;
+}
+
+.deck {
+  position: relative;
+  display: flex;
+  align-self: center;
+  height: 259.3199768066406px;
+  width: 199.34359741210938px;
+  padding-bottom: 5px;
+  background-color: #4d894c;
+}
+
+.dealerCards {
+  position: relative;
+  min-width: 500px;
+}
+
+#dealerTotal {
+  height: 100px;
+  width: 112px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.75);
+  text-align: center;
+  line-height: 100px;
+  font-weight: bold;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+#dealerBust {
+  margin: auto;
+  border-radius: 10px;
+  background: none;
+  text-align: center;
+  line-height: 144px;
+  font-weight: bold;
+  font-size: 150px;
+  font-style: italic;
+  font-weight: 700;
+  color: red;
+  text-shadow: 5px 5px black, -1px -1px 1px black;
+  z-index: 1;
+}
+
+/* posiitons of all the dealers cards */
 #dealer1 {
   position: absolute;
-  left: 295px;
-  top: 50px;
+  left: 270px;
+  top: 9px;
 }
 
 #dealer2 {
   position: absolute;
-  left: 70px;
-  top: 50px;
+  left: 55px;
+  top: 9px;
 }
 
 #dealer3 {
   position: absolute;
-  left: 26px;
-  top: 83px;
+  left: 20px;
+  top: 49px;
 }
 
 #dealer4 {
   position: absolute;
-  left: 251px;
-  top: 83px;
+  left: 235px;
+  top: 49px;
 }
 
 #dealer5 {
   position: absolute;
-  left: 70px;
-  top: 116px;
+  left: 55px;
+  top: 89px;
 }
 
 #dealer6 {
   position: absolute;
-  left: 295px;
-  top: 116px;
+  left: 270px;
+  top: 89px;
+}
+
+/* ________________________________________________________________________________________ */
+
+/* current bet */
+.bettingSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.currentBet {
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  width: 500px;
+}
+
+#currentBetOnTable {
+  height: 100px;
+  width: 150px;
+  border: 3px solid black;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255);
+  text-align: center;
+  line-height: 100px;
+  font-weight: bold;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  z-index: 1;
+}
+
+#currentBet100 {
+  position: absolute;
+  left: 80px;
+  top: 10px;
+}
+
+#currentBet500 {
+  position: absolute;
+  left: 300px;
+  top: -50px;
+}
+#currentBet1000 {
+  position: absolute;
+  left: 350px;
+  top: -10px;
+}
+
+/* ________________________________________________________________________________________ */
+
+/* player and betting menu*/
+.playerSection {
+  display: flex;
+  flex-direction: row;
+  padding-top: 20px;
+  justify-content: space-between;
+  flex-grow: 1;
+  padding-right: 40px;
+}
+
+.player {
+  display: flex;
+  position: relative;
+  flex-grow: 1;
+  padding-left: 40px;
+}
+
+.playerButtons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-content: space-evenly;
+}
+
+#playerBust {
+  position: relative;
+  margin-top: 100px;
+  background: none;
+  text-align: center;
+  line-height: 144px;
+  font-weight: bold;
+  font-size: 150px;
+  font-style: italic;
+  font-weight: 700;
+  color: red;
+  text-shadow: 5px 5px black, -1px -1px 1px black;
+  z-index: 1;
+}
+
+.playerCards {
+  position: relative;
+  margin-left: 200px;
+  min-width: 500px;
+}
+
+#playerTotal {
+  height: 100px;
+  width: 112px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.75);
+  text-align: center;
+  line-height: 100px;
+  font-weight: bold;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
 }
 
 #stay {
-  /* position: absolute; */
   height: 75px;
   width: 112px;
-  left: 38px;
-  top: 134px;
   border: none;
   background-color: rgba(255, 255, 255, 0.75);
   border-radius: 10px;
@@ -195,23 +285,14 @@ li {
 }
 
 #stay:hover {
-  /* position: absolute; */
-  height: 85px;
-  width: 122px;
-  left: 33px;
-  top: 129px;
   background-color: rgba(255, 255, 255);
   border-radius: 13px;
   font-weight: bold;
-  font-size: 23px;
 }
 
 #hit {
-  /* position: absolute; */
   height: 75px;
   width: 112px;
-  left: 38px;
-  top: 39px;
   border: none;
   background-color: rgba(255, 255, 255, 0.75);
   border-radius: 10px;
@@ -220,137 +301,80 @@ li {
 }
 
 #hit:hover {
-  /* position: absolute; */
-  height: 85px;
-  width: 122px;
-  left: 33px;
-  top: 34px;
   background-color: rgba(255, 255, 255);
   border-radius: 13px;
   font-weight: bold;
-  font-size: 23px;
 }
 
+#displayMoney {
+  height: 150px;
+  width: 200px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.75);
+  text-align: center;
+  line-height: 75px;
+  font-weight: bold;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  margin: auto 0;
+}
+
+/* position of player cards */
 #player1 {
-  /* position: absolute; */
-  height: 245px;
-  width: 175px;
-  left: 335px;
-  top: 56px;
+  position: absolute;
+  left: 55px;
+  top: 50px;
 }
 
 #player2 {
-  /* position: absolute; */
-  height: 245px;
-  width: 175px;
-  left: 560px;
-  top: 56px;
+  position: absolute;
+  left: 270px;
+  top: 50px;
 }
 
 #player3 {
-  /* position: absolute; */
-  left: 299px;
-  top: 105px;
+  position: absolute;
+  left: 20px;
+  top: 90px;
 }
 
 #player4 {
-  /* position: absolute; */
-  left: 524px;
-  top: 105px;
+  position: absolute;
+  left: 235px;
+  top: 90px;
 }
 
 #player5 {
-  /* position: absolute; */
-  left: 263px;
-  top: 154px;
+  position: absolute;
+  left: 55px;
+  top: 130px;
 }
 
 #player6 {
-  /* position: absolute; */
-  left: 488px;
-  top: 154px;
+  position: absolute;
+  left: 270px;
+  top: 130px;
 }
 
-#clickButton {
+/* ________________________________________________________ */
+
+/* betting window */
+
+.betting {
+  height: 400px;
+  width: 800px;
   position: relative;
-  margin: auto;
-  height: 100px;
-  width: 150px;
-  border: none;
-  background-color: rgba(209, 80, 80, 0.75);
+  background: #4d894c;
+  border: 2px solid black;
   border-radius: 10px;
-  font-weight: bold;
-  font-size: 25px;
-}
-
-#pokerChip1 {
-  /* position: absolute; */
-  background: transparent;
-  height: 128px;
-  width: 128px;
-  left: 17px;
-  top: 250px;
-  border: none;
-  padding: 0px;
-}
-
-#pokerChip5 {
-  /* position: absolute; */
-  background: transparent;
-  height: 128px;
-  width: 128px;
-  left: 179px;
-  top: 251px;
-  border: none;
-  padding: 0px;
-}
-
-#pokerChip25 {
-  /* position: absolute; */
-  background: transparent;
-  height: 128px;
-  width: 128px;
-  left: 341px;
-  top: 251px;
-  border: none;
-  padding: 0px;
-}
-
-#pokerChip100 {
-  /* position: absolute; */
-  background: transparent;
-  height: 128px;
-  width: 128px;
-  left: 503px;
-  top: 252px;
-  border: none;
-  padding: 0px;
-}
-
-#pokerChip500 {
-  /* position: absolute; */
-  background: transparent;
-  height: 128px;
-  width: 128px;
-  left: 98px;
-  top: 114px;
-  border: none;
-  padding: 0px;
-}
-
-#pokerChip1000 {
-  /* position: absolute; */
-  background: transparent;
-  height: 128px;
-  width: 128px;
-  left: 260px;
-  top: 114px;
-  border: none;
-  padding: 0px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  margin: 0 auto;
 }
 
 #totalMoney {
-  /* position: absolute; */
+  position: absolute;
   height: 75px;
   width: 112px;
   left: 11px;
@@ -367,7 +391,7 @@ li {
 }
 
 #betMoney {
-  /* position: absolute; */
+  position: absolute;
   height: 126px;
   width: 209px;
   left: 429px;
@@ -383,7 +407,7 @@ li {
 }
 
 #reset {
-  /* position: absolute; */
+  position: absolute;
   height: 75px;
   width: 112px;
   left: 665px;
@@ -400,7 +424,7 @@ li {
 }
 
 #allIn {
-  /* position: absolute; */
+  position: absolute;
   height: 75px;
   width: 112px;
   left: 665px;
@@ -417,7 +441,7 @@ li {
 }
 
 #done {
-  /* position: absolute; */
+  position: absolute;
   height: 75px;
   width: 112px;
   left: 665px;
@@ -433,123 +457,71 @@ li {
   border: none;
 }
 
-#currentBetOnTable {
-  /* position: absolute; */
-  height: 100px;
-  width: 150px;
-  left: 189px;
-  top: 61px;
-  border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.75);
-  text-align: center;
-  line-height: 100px;
-  font-weight: bold;
-  font-size: 30px;
-  font-style: normal;
-  font-weight: 700;
+/* betting buttons */
+#pokerChip1 {
+  position: absolute;
+  background: transparent;
+  height: 128px;
+  width: 128px;
+  left: 17px;
+  top: 250px;
+  border: none;
+  padding: 0px;
 }
 
-#currentBet100 {
-  /* position: absolute; */
-  left: 19px;
-  top: 84px;
-}
-#currentBet500 {
-  /* position: absolute; */
-  left: 359px;
-  top: 107px;
-}
-#currentBet1000 {
-  /* position: absolute; */
-  left: 379px;
-  top: 41px;
+#pokerChip5 {
+  position: absolute;
+  background: transparent;
+  height: 128px;
+  width: 128px;
+  left: 179px;
+  top: 251px;
+  border: none;
+  padding: 0px;
 }
 
-#playerTotal {
-  /* position: absolute; */
-  top: 269px;
-  left: 38px;
-  height: 100px;
-  width: 112px;
-  border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.75);
-  text-align: center;
-  line-height: 100px;
-  font-weight: bold;
-  font-size: 30px;
-  font-style: normal;
-  font-weight: 700;
+#pokerChip25 {
+  position: absolute;
+  background: transparent;
+  height: 128px;
+  width: 128px;
+  left: 341px;
+  top: 251px;
+  border: none;
+  padding: 0px;
 }
 
-#coverCard {
-  height: 245px;
-  width: 175px;
+#pokerChip100 {
+  position: absolute;
+  background: transparent;
+  height: 128px;
+  width: 128px;
+  left: 503px;
+  top: 252px;
+  border: none;
+  padding: 0px;
 }
 
-#dealerTotal {
-  /* position: absolute; */
-  top: 340px;
-  left: 651px;
-  height: 100px;
-  width: 112px;
-  border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.75);
-  text-align: center;
-  line-height: 100px;
-  font-weight: bold;
-  font-size: 30px;
-  font-style: normal;
-  font-weight: 700;
+#pokerChip500 {
+  position: absolute;
+  background: transparent;
+  height: 128px;
+  width: 128px;
+  left: 98px;
+  top: 114px;
+  border: none;
+  padding: 0px;
 }
 
-#playerBust {
-  /* position: absolute; */
-  height: 144px;
-  width: 252px;
-  left: 317px;
-  top: 108px;
-  border-radius: 10px;
-  background: none;
-  text-align: center;
-  line-height: 144px;
-  font-weight: bold;
-  font-size: 150px;
-  font-style: italic;
-  font-weight: 700;
-  color: red;
-  text-shadow: 5px 5px black, -1px -1px 1px black;
+#pokerChip1000 {
+  position: absolute;
+  background: transparent;
+  height: 128px;
+  width: 128px;
+  left: 260px;
+  top: 114px;
+  border: none;
+  padding: 0px;
 }
 
-#displayMoney {
-  /* position: absolute; */
-  height: 150px;
-  width: 200px;
-  left: 1150px;
-  top: 150px;
-  border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.75);
-  text-align: center;
-  line-height: 75px;
-  font-weight: bold;
-  font-size: 30px;
-  font-style: normal;
-  font-weight: 700;
-}
-
-#dealerBust {
-  /* position: absolute; */
-  height: 144px;
-  width: 252px;
-  left: 60px;
-  top: 108px;
-  border-radius: 10px;
-  background: none;
-  text-align: center;
-  line-height: 144px;
-  font-weight: bold;
-  font-size: 150px;
-  font-style: italic;
-  font-weight: 700;
-  color: red;
-  text-shadow: 5px 5px black, -1px -1px 1px black;
-}
+/* ________________________________________________________________________________________ */

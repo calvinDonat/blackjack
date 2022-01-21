@@ -10,6 +10,7 @@ class Background extends React.Component {
   state = {
     betting: { display: 'block' },
     coverCard: { display: 'none' },
+    playingTime: { display: 'none' },
     playerBust: { display: 'none' },
     dealerBust: { display: 'none' },
     money: {
@@ -510,6 +511,9 @@ class Background extends React.Component {
     let coverCard = this.state.coverCard;
     coverCard = { display: 'block ' };
     this.setState({ coverCard });
+    let playingTime = this.state.playingTime;
+    playingTime = { display: 'flex ' };
+    this.setState({ playingTime });
     setTimeout(this.handlePlayerHit, 500);
     setTimeout(this.handlePlayerHit, 500);
     setTimeout(this.handleDealerHit, 1000);
@@ -586,6 +590,7 @@ class Background extends React.Component {
     let dealerCards = this.state.dealerCards;
     let playerTotal = this.state.playerTotal;
     let dealerTotal = this.state.dealerTotal;
+    let playingTime = this.state.playingTime;
     playerCards = [];
     dealerCards = [];
     playerTotal = 0;
@@ -594,6 +599,7 @@ class Background extends React.Component {
     coverCard = { display: 'none' };
     playerBust = { display: 'none' };
     dealerBust = { display: 'none' };
+    playingTime = { display: 'none' };
     money = {
       betMoney: 5,
       totalMoney: this.state.money.totalMoney - 5,
@@ -608,6 +614,7 @@ class Background extends React.Component {
       dealerCards,
       playerTotal,
       dealerTotal,
+      playingTime,
     });
   };
 
@@ -632,12 +639,11 @@ class Background extends React.Component {
             onStay={this.handleStay}
             playerCards={this.state.playerCards}
             playerTotal={this.state.playerTotal}
-            isTime={this.state.coverCard}
+            isTime={this.state.playingTime}
             isBust={this.state.playerBust}
             money={this.state.money.totalMoney}
           />
           <Betting
-            totalMoney={this.state.money.totalMoney}
             betMoney={this.state.money.betMoney}
             onBet={this.handleBet}
             onReset={this.handleBetReset}
@@ -645,6 +651,12 @@ class Background extends React.Component {
             onDone={this.handleDone}
             display={this.state.betting}
           />
+          <div id='displayMoney'>
+            Total Money{' '}
+            <span style={{ fontSize: 50 + 'px' }}>
+              ${this.state.money.totalMoney}
+            </span>
+          </div>
         </div>
       </div>
     );

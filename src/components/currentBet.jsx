@@ -5,11 +5,11 @@ class CurrentBet extends React.Component {
   render() {
     return (
       <div className='currentBet'>
-        <div id='currentBetOnTable'>${this.props.currentBet}</div>
         <img
           src={require('C:/Users/calvi/React/blackjack-app/src/PNG-pokerChips/100_pokerChipNoShadow.png')}
           id='currentBet100'
         />
+        <div id='currentBetOnTable'>${this.props.currentBet}</div>
         <img
           src={require('C:/Users/calvi/React/blackjack-app/src/PNG-pokerChips/500_pokerChipNoShadow.png')}
           id='currentBet500'

@@ -14,7 +14,6 @@ class Betting extends React.Component {
         <button id='done' onClick={this.props.onDone}>
           DONE
         </button>
-        <div id='totalMoney'>Total: ${this.props.totalMoney}</div>
         <div id='betMoney'>${this.props.betMoney}</div>
         <button onClick={this.props.onBet.bind(this, 1)} id='pokerChip1'>
           <img

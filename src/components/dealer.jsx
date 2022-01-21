@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import 'C:/Users/calvi/React/blackjack-app/src/App.css';
 import Deck from 'C:/Users/calvi/React/blackjack-app/src/deck.svg';
 import Card from './card';
+import backOfCard from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/BackOfCard.svg';
 
 class Dealer extends React.Component {
   render() {
@@ -15,11 +16,7 @@ class Dealer extends React.Component {
               cardId={`dealer${card.dealerId}`}
             />
           ))}
-          <img
-            src={require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/back_of_card.png')}
-            id='dealer2'
-            style={this.props.coverCard}
-          />
+          <img src={backOfCard} id='dealer2' style={this.props.coverCard} />
           <div id='dealerBust' style={this.props.isBust}>
             BUST!
           </div>

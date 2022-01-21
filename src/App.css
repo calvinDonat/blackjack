@@ -30,6 +30,8 @@ body {
 .card {
   height: 245px;
   width: 175px;
+  border: 2px solid black;
+  border-radius: 10px;
 }
 
 /* ________________________________________________________________________________________ */
@@ -115,7 +117,8 @@ li {
 }
 
 #dealerBust {
-  margin: auto;
+  position: relative;
+  margin-top: 100px;
   border-radius: 10px;
   background: none;
   text-align: center;
@@ -423,6 +426,12 @@ li {
   border: none;
 }
 
+#reset:hover {
+  background-color: rgba(255, 255, 255);
+  border-radius: 13px;
+  font-weight: bold;
+}
+
 #allIn {
   position: absolute;
   height: 75px;
@@ -440,6 +449,12 @@ li {
   border: none;
 }
 
+#allIn:hover {
+  background-color: rgba(255, 255, 255);
+  border-radius: 13px;
+  font-weight: bold;
+}
+
 #done {
   position: absolute;
   height: 75px;
@@ -455,6 +470,12 @@ li {
   font-style: normal;
   font-weight: 700;
   border: none;
+}
+
+#done:hover {
+  background-color: rgba(255, 255, 255);
+  border-radius: 13px;
+  font-weight: bold;
 }
 
 /* betting buttons */

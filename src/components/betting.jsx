@@ -14,11 +14,11 @@ class Betting extends React.Component {
         <button id='done' onClick={this.props.onDone}>
           DONE
         </button>
-        <div id='betMoney'>${this.props.betMoney}</div>
+        <div id='betMoney'>{this.props.betMoney}</div>
         <button onClick={this.props.onBet.bind(this, 1)} id='pokerChip1'>
           <img
             src={require('C:/Users/calvi/React/blackjack-app/src/PNG-pokerChips/1_pokerChip.png')}
-            className='pokerChip'
+            // className='pokerChip'
           />
         </button>
         <button onClick={this.props.onBet.bind(this, 5)} id='pokerChip5'>

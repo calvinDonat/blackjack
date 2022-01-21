@@ -5,6 +5,58 @@ import Info from './info';
 import Dealer from './dealer';
 import CurrentBet from './currentBet';
 import Betting from './betting';
+import CA from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/AC.svg';
+import DA from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/AD.svg';
+import HA from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/AH.svg';
+import SA from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/AS.svg';
+import C2 from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/2C.svg';
+import D2 from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/2D.svg';
+import H2 from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/2H.svg';
+import S2 from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/2S.svg';
+import C3 from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/3C.svg';
+import D3 from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/3D.svg';
+import H3 from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/3H.svg';
+import S3 from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/3S.svg';
+import C4 from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/4C.svg';
+import D4 from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/4D.svg';
+import H4 from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/4H.svg';
+import S4 from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/4S.svg';
+import C5 from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/5C.svg';
+import D5 from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/5D.svg';
+import H5 from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/5H.svg';
+import S5 from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/5S.svg';
+import C6 from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/6C.svg';
+import D6 from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/6D.svg';
+import H6 from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/6H.svg';
+import S6 from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/6S.svg';
+import C7 from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/7C.svg';
+import D7 from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/7D.svg';
+import H7 from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/7H.svg';
+import S7 from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/7S.svg';
+import C8 from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/8C.svg';
+import D8 from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/8D.svg';
+import H8 from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/8H.svg';
+import S8 from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/8S.svg';
+import C9 from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/9C.svg';
+import D9 from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/9D.svg';
+import H9 from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/9H.svg';
+import S9 from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/9S.svg';
+import CT from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/TC.svg';
+import DT from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/TD.svg';
+import HT from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/TH.svg';
+import ST from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/TS.svg';
+import CJ from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/JC.svg';
+import DJ from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/JD.svg';
+import HJ from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/JH.svg';
+import SJ from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/JS.svg';
+import CQ from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/QC.svg';
+import DQ from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/QD.svg';
+import HQ from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/QH.svg';
+import SQ from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/QS.svg';
+import CK from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/KC.svg';
+import DK from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/KD.svg';
+import HK from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/KH.svg';
+import SK from 'C:/Users/calvi/React/blackjack-app/src/poker-symmetric/KS.svg';
 
 class Background extends React.Component {
   state = {
@@ -14,8 +66,8 @@ class Background extends React.Component {
     playerBust: { display: 'none' },
     dealerBust: { display: 'none' },
     money: {
-      betMoney: 5,
-      totalMoney: 995,
+      betMoney: '$5',
+      totalMoney: 1000,
     },
     playerCards: [],
     dealerCards: [],
@@ -23,392 +75,381 @@ class Background extends React.Component {
     dealerTotal: 0,
     deckOfCards: [
       {
-        name: 'ace of clubs',
+        name: 'A of C',
         value: 11,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/ace_of_clubs.png'),
+        address: CA,
         used: false,
       },
       {
-        name: 'ace of diamonds',
+        name: 'A of D',
         value: 11,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/ace_of_diamonds.png'),
+        address: DA,
         used: false,
       },
       {
-        name: 'ace of hearts',
+        name: 'A of H',
         value: 11,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/ace_of_hearts.png'),
+        address: HA,
         used: false,
       },
       {
-        name: 'ace of spades',
+        name: 'A of S',
         value: 11,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/ace_of_spades.png'),
+        address: SA,
         used: false,
       },
       {
-        name: '2 of clubs',
+        name: '2 of C',
         value: 2,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/2_of_clubs.png'),
+        address: C2,
         used: false,
       },
       {
-        name: '2 of diamonds',
+        name: '2 of D',
         value: 2,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/2_of_diamonds.png'),
+        address: D2,
         used: false,
       },
       {
-        name: '2 of hearts',
+        name: '2 of H',
         value: 2,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/2_of_hearts.png'),
+        address: H2,
         used: false,
       },
       {
-        name: '2 of spades',
+        name: '2 of S',
         value: 2,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/2_of_spades.png'),
+        address: S2,
         used: false,
       },
       {
-        name: '3 of clubs',
+        name: '3 of C',
         value: 3,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/3_of_clubs.png'),
+        address: C3,
         used: false,
       },
       {
-        name: '3 of diamonds',
+        name: '3 of D',
         value: 3,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/3_of_diamonds.png'),
+        address: D3,
         used: false,
       },
       {
-        name: '3 of hearts',
+        name: '3 of H',
         value: 3,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/3_of_hearts.png'),
+        address: H3,
         used: false,
       },
       {
-        name: '3 of spades',
+        name: '3 of S',
         value: 3,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/3_of_spades.png'),
+        address: S3,
         used: false,
       },
       {
-        name: '4 of clubs',
+        name: '4 of C',
         value: 4,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/4_of_clubs.png'),
+        address: C4,
         used: false,
       },
       {
-        name: '4 of diamonds',
+        name: '4 of D',
         value: 4,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/4_of_diamonds.png'),
+        address: D4,
         used: false,
       },
       {
-        name: '4 of hearts',
+        name: '4 of H',
         value: 4,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/4_of_hearts.png'),
+        address: H4,
         used: false,
       },
       {
-        name: '4 of spades',
+        name: '4 of S',
         value: 4,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/4_of_spades.png'),
+        address: S4,
         used: false,
       },
       {
-        name: '5 of clubs',
+        name: '5 of C',
         value: 5,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/5_of_clubs.png'),
+        address: C5,
         used: false,
       },
       {
-        name: '5 of diamonds',
+        name: '5 of D',
         value: 5,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/5_of_diamonds.png'),
+        address: D5,
         used: false,
       },
       {
-        name: '5 of hearts',
+        name: '5 of H',
         value: 5,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/5_of_hearts.png'),
+        address: H5,
         used: false,
       },
       {
-        name: '5 of spades',
+        name: '5 of S',
         value: 5,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/5_of_spades.png'),
+        address: S5,
         used: false,
       },
       {
-        name: '6 of clubs',
+        name: '6 of C',
         value: 6,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/6_of_clubs.png'),
+        address: C6,
         used: false,
       },
       {
-        name: '6 of diamonds',
+        name: '6 of D',
         value: 6,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/6_of_diamonds.png'),
+        address: D6,
         used: false,
       },
       {
-        name: '6 of hearts',
+        name: '6 of H',
         value: 6,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/6_of_hearts.png'),
+        address: H6,
         used: false,
       },
       {
-        name: '6 of spades',
+        name: '6 of S',
         value: 6,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/6_of_spades.png'),
+        address: S6,
         used: false,
       },
       {
-        name: '7 of clubs',
+        name: '7 of C',
         value: 7,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/7_of_clubs.png'),
+        address: C7,
         used: false,
       },
       {
-        name: '7 of diamonds',
+        name: '7 of D',
         value: 7,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/7_of_diamonds.png'),
+        address: D7,
         used: false,
       },
       {
-        name: '7 of hearts',
+        name: '7 of H',
         value: 7,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/7_of_hearts.png'),
+        address: H7,
         used: false,
       },
       {
-        name: '7 of spades',
+        name: '7 of S',
         value: 7,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/7_of_spades.png'),
+        address: S7,
         used: false,
       },
       {
-        name: '8 of clubs',
+        name: '8 of C',
         value: 8,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/8_of_clubs.png'),
+        address: C8,
         used: false,
       },
       {
-        name: '8 of diamonds',
+        name: '8 of D',
         value: 8,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/8_of_diamonds.png'),
+        address: D8,
         used: false,
       },
       {
-        name: '8 of hearts',
+        name: '8 of H',
         value: 8,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/8_of_hearts.png'),
+        address: H8,
         used: false,
       },
       {
-        name: '8 of spades',
+        name: '8 of S',
         value: 8,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/8_of_spades.png'),
+        address: S8,
         used: false,
       },
       {
-        name: '9 of clubs',
+        name: '9 of C',
         value: 9,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/9_of_clubs.png'),
+        address: C9,
         used: false,
       },
       {
-        name: '9 of diamonds',
+        name: '9 of D',
         value: 9,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/9_of_diamonds.png'),
+        address: D9,
         used: false,
       },
       {
-        name: '9 of hearts',
+        name: '9 of H',
         value: 9,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/9_of_hearts.png'),
+        address: H9,
         used: false,
       },
       {
-        name: '9 of spades',
+        name: '9 of S',
         value: 9,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/9_of_spades.png'),
+        address: S9,
         used: false,
       },
       {
-        name: '10 of clubs',
+        name: 'T of C',
         value: 10,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/10_of_clubs.png'),
+        address: CT,
         used: false,
       },
       {
-        name: '10 of diamonds',
+        name: 'T of D',
         value: 10,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/10_of_diamonds.png'),
+        address: DT,
         used: false,
       },
       {
-        name: '10 of hearts',
+        name: 'T of H',
         value: 10,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/10_of_hearts.png'),
+        address: HT,
         used: false,
       },
       {
-        name: '10 of spades',
+        name: 'T of S',
         value: 10,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/10_of_spades.png'),
+        address: ST,
         used: false,
       },
       {
-        name: 'jack of clubs',
+        name: 'J of C',
         value: 10,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/jack_of_clubs.png'),
+        address: CJ,
         used: false,
       },
       {
-        name: 'jack of diamonds',
+        name: 'J of D',
         value: 10,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/jack_of_diamonds.png'),
+        address: DJ,
         used: false,
       },
       {
-        name: 'jack of hearts',
+        name: 'J of H',
         value: 10,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/jack_of_hearts.png'),
+        address: HJ,
         used: false,
       },
       {
-        name: 'jack of spades',
+        name: 'J of S',
         value: 10,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/jack_of_spades.png'),
+        address: SJ,
         used: false,
       },
       {
-        name: 'queen of clubs',
+        name: 'Q of C',
         value: 10,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/queen_of_clubs.png'),
+        address: CQ,
         used: false,
       },
       {
-        name: 'queen of diamonds',
+        name: 'Q of D',
         value: 10,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/queen_of_diamonds.png'),
+        address: DQ,
         used: false,
       },
       {
-        name: 'queen of hearts',
+        name: 'Q of H',
         value: 10,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/queen_of_hearts.png'),
+        address: HQ,
         used: false,
       },
       {
-        name: 'queen of spades',
+        name: 'Q of S',
         value: 10,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/queen_of_spades.png'),
+        address: SQ,
         used: false,
       },
       {
-        name: 'king of clubs',
+        name: 'K of C',
         value: 10,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/king_of_clubs.png'),
+        address: CK,
         used: false,
       },
       {
-        name: 'king of diamonds',
+        name: 'K of D',
         value: 10,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/king_of_diamonds.png'),
+        address: DK,
         used: false,
       },
       {
-        name: 'king of hearts',
+        name: 'K of H',
         value: 10,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/king_of_hearts.png'),
+        address: HK,
         used: false,
       },
       {
-        name: 'king of spades',
+        name: 'K of S',
         value: 10,
-        address: require('C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/king_of_spades.png'),
+        address: SK,
         used: false,
       },
     ],
   };
 
-  //   createCards = () => {
-  //     let deckOfCards = [];
-  //     for (let i = 1; i <= 13; i++) {
-  //       for (let j = 1; j <= 4; j++) {
-  //         let suite = '';
-  //         switch (j) {
-  //           case 1:
-  //             suite = 'clubs';
-  //             break;
-  //           case 2:
-  //             suite = 'diamonds';
-  //             break;
-  //           case 3:
-  //             suite = 'hearts';
-  //             break;
-  //           case 4:
-  //             suite = 'spades';
-  //             break;
-  //         }
-  //         let number = '';
-  //         switch (i) {
-  //           case 11:
-  //             number = 'jack';
-  //             break;
-  //           case 12:
-  //             number = 'queen';
-  //             break;
-  //           case 13:
-  //             number = 'king';
-  //             break;
-  //           case 1:
-  //             number = 'ace';
-  //             break;
-  //           default:
-  //             number = i.toString();
-  //         }
-  //         let value;
-  //         if (i > 10) {
-  //           value = 10;
-  //         } else if (i == 1) {
-  //           value = 11;
-  //         } else {
-  //           value = i;
-  //         }
-
-  //         let pushObject = {
-  //           name: `${number} of ${suite}`,
-  //           value: value,
-  //           address: `require(C:/Users/calvi/React/blackjack-app/src/PNG-cards-1.3/${number}_of_${suite}.png)`,
-  //           used: false,
-  //         };
-
-  //         deckOfCards.push(pushObject);
+  // createCards = () => {
+  //   let deckOfCards = [];
+  //   for (let i = 1; i <= 13; i++) {
+  //     for (let j = 1; j <= 4; j++) {
+  //       let suite = '';
+  //       switch (j) {
+  //         case 1:
+  //           suite = 'C';
+  //           break;
+  //         case 2:
+  //           suite = 'D';
+  //           break;
+  //         case 3:
+  //           suite = 'H';
+  //           break;
+  //         case 4:
+  //           suite = 'S';
+  //           break;
   //       }
+  //       let number = '';
+  //       switch (i) {
+  //         case 10:
+  //           number = 'T';
+  //           break;
+  //         case 11:
+  //           number = 'J';
+  //           break;
+  //         case 12:
+  //           number = 'Q';
+  //           break;
+  //         case 13:
+  //           number = 'K';
+  //           break;
+  //         case 1:
+  //           number = 'A';
+  //           break;
+  //         default:
+  //           number = i.toString();
+  //       }
+  //       let value;
+  //       if (i > 10) {
+  //         value = 10;
+  //       } else if (i == 1) {
+  //         value = 11;
+  //       } else {
+  //         value = i;
+  //       }
+
+  //       let pushObject = {
+  //         name: `${number} of ${suite}`,
+  //         value: value,
+  //         address: `${suite}${number}`,
+  //         used: false,
+  //       };
+
+  //       deckOfCards.push(pushObject);
   //     }
-  //     this.setState({ deckOfCards });
+  //   }
 
-  //     console.log({ deckOfCards });
-  //   };
-
-  //   handleGetCard = () => {
-  //     const availableCards = this.state.deckOfCards.filter((card) => !card.used);
-  //     const card =
-  //       availableCards[Math.floor(Math.random() * availableCards.length - 1)];
-  //     card.used = true;
-  //     this.setState({
-  //       playerTotal: (this.state.playerTotal += card.value),
-  //       deckOfCards: [availableCards],
-  //     });
-  //     console.log({ card }, { availableCards }, this.state);
-  //     return card;
-  //   };
+  //   console.log({ deckOfCards });
+  // };
 
   checkPlayerTotal = () => {
     let playerTotal = this.state.playerTotal;
@@ -475,31 +516,29 @@ class Background extends React.Component {
   };
 
   handleBet = (amount) => {
-    console.log(amount);
+    console.log(`bet ${amount}`);
     const money = this.state.money;
-    if ((money.totalMoney -= amount) > -1) {
-      money.betMoney += amount;
+    if (parseInt(money.betMoney.slice(1)) + amount <= money.totalMoney) {
+      money.betMoney = '$' + (parseInt(money.betMoney.slice(1)) + amount);
     } else {
-      money.totalMoney += amount;
       alert('Cannot bet more than you have, silly!');
     }
 
+    console.log({ money });
     this.setState({ money });
   };
 
   handleBetReset = () => {
-    console.log('reset');
+    console.log('bet reset');
     const money = this.state.money;
-    money.totalMoney = money.totalMoney += money.betMoney - 5;
-    money.betMoney = 5;
+    money.betMoney = '$5';
     this.setState({ money });
   };
 
   handleAllIn = () => {
     console.log('All In');
     const money = this.state.money;
-    money.betMoney = money.betMoney += money.totalMoney;
-    money.totalMoney = 0;
+    money.betMoney = `$${money.totalMoney}`;
     this.setState({ money });
   };
 
@@ -551,7 +590,7 @@ class Background extends React.Component {
       dealerBust = { display: 'block' };
       setTimeout(this.setState({ dealerBust }), 1000);
       const money = this.state.money;
-      money.totalMoney += this.state.money.betMoney * 2;
+      money.totalMoney += parseInt(this.state.money.betMoney.slice(1)) * 2;
       setTimeout(this.setState({ money }), 1000);
       setTimeout(this.handleReset, 3000);
     }
@@ -560,13 +599,17 @@ class Background extends React.Component {
   checkWinner = () => {
     const money = this.state.money;
     if (this.state.dealerTotal > this.state.playerTotal) {
-      money.totalMoney -= this.state.money.betMoney;
+      money.totalMoney -= parseInt(this.state.money.betMoney.slice(1));
+      money.betMoney = 'LOSE';
       this.setState({ money });
       setTimeout(this.handleReset, 3000);
-    } else if ((this.state.dealerTotal = this.state.playerTotal)) {
+    } else if (this.state.dealerTotal == this.state.playerTotal) {
+      money.betMoney = 'TIE';
+      this.setState({ money });
       setTimeout(this.handleReset, 3000);
     } else {
-      money.totalMoney += this.state.money.betMoney * 2;
+      money.totalMoney += parseInt(this.state.money.betMoney.slice(1)) * 2;
+      money.betMoney = 'WIN';
       this.setState({ money });
       setTimeout(this.handleReset, 3000);
     }
@@ -601,8 +644,8 @@ class Background extends React.Component {
     dealerBust = { display: 'none' };
     playingTime = { display: 'none' };
     money = {
-      betMoney: 5,
-      totalMoney: this.state.money.totalMoney - 5,
+      betMoney: '$5',
+      totalMoney: this.state.money.totalMoney,
     };
     this.setState({
       betting,

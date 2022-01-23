@@ -5,6 +5,7 @@ class Betting extends React.Component {
   render() {
     return (
       <div className='betting' style={this.props.display}>
+        <p className='clickToBet'>Click Chips to Bet!</p>
         <button id='reset' onClick={this.props.onReset}>
           RESET
         </button>

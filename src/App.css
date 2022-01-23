@@ -16,6 +16,10 @@ body {
   background: #4d894c;
 }
 
+.whyYouLose {
+  margin-top: 300px;
+}
+
 .mainHeader {
   font-weight: bold;
   font-size: 75px;
@@ -98,6 +102,11 @@ li {
   background-color: #4d894c;
 }
 
+.coverCard {
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
 .dealerCards {
   position: relative;
   min-width: 500px;
@@ -107,7 +116,8 @@ li {
   height: 100px;
   width: 112px;
   border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.75);
+  border: 3px solid black;
+  background-color: rgba(255, 255, 255);
   text-align: center;
   line-height: 100px;
   font-weight: bold;
@@ -186,35 +196,19 @@ li {
 }
 
 #currentBetOnTable {
-  height: 100px;
-  width: 150px;
+  display: flex;
+  min-height: 100px;
+  min-width: 150px;
   border: 3px solid black;
   border-radius: 10px;
   background-color: rgba(255, 255, 255);
-  text-align: center;
-  line-height: 100px;
+  justify-content: center;
+  align-items: center;
   font-weight: bold;
   font-size: 30px;
   font-style: normal;
   font-weight: 700;
   z-index: 1;
-}
-
-#currentBet100 {
-  position: absolute;
-  left: 80px;
-  top: 10px;
-}
-
-#currentBet500 {
-  position: absolute;
-  left: 300px;
-  top: -50px;
-}
-#currentBet1000 {
-  position: absolute;
-  left: 350px;
-  top: -10px;
 }
 
 /* ________________________________________________________________________________________ */
@@ -226,7 +220,7 @@ li {
   padding-top: 20px;
   justify-content: space-between;
   flex-grow: 1;
-  padding-right: 40px;
+  padding-right: 150px;
 }
 
 .player {
@@ -268,7 +262,8 @@ li {
   height: 100px;
   width: 112px;
   border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.75);
+  border: 3px solid black;
+  background-color: rgba(255, 255, 255);
   text-align: center;
   line-height: 100px;
   font-weight: bold;
@@ -313,7 +308,8 @@ li {
   height: 150px;
   width: 200px;
   border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.75);
+  border: 3px solid black;
+  background-color: rgba(255, 255, 255);
   text-align: center;
   line-height: 75px;
   font-weight: bold;
@@ -376,6 +372,19 @@ li {
   margin: 0 auto;
 }
 
+.clickToBet {
+  position: absolute;
+  top: 20px;
+  left: 40px;
+  font-size: 40px;
+  color: white;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0em;
+  text-align: center;
+  margin: 0;
+}
+
 #totalMoney {
   position: absolute;
   height: 75px;
@@ -399,7 +408,8 @@ li {
   width: 209px;
   left: 429px;
   top: 84px;
-  background-color: rgba(255, 255, 255, 0.75);
+  border: 3px solid black;
+  background-color: rgba(255, 255, 255);
   border-radius: 10px;
   text-align: center;
   line-height: 126px;

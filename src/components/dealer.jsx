@@ -16,7 +16,12 @@ class Dealer extends React.Component {
               cardId={`dealer${card.dealerId}`}
             />
           ))}
-          <img src={backOfCard} id='dealer2' style={this.props.coverCard} />
+          <img
+            src={backOfCard}
+            className='coverCard'
+            id='dealer2'
+            style={this.props.coverCard}
+          />
           <div id='dealerBust' style={this.props.isBust}>
             BUST!
           </div>

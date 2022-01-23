@@ -6,7 +6,7 @@ class Player extends React.Component {
   render() {
     return (
       <div className='player' style={this.props.isTime}>
-        <div className='playerButtons'>
+        <div className='playerButtons' style={this.props.playerButtons}>
           <button onClick={this.props.onHit} id='hit'>
             HIT
           </button>

@@ -65,6 +65,8 @@ class Background extends React.Component {
     playingTime: { display: 'none' },
     playerBust: { display: 'none' },
     dealerBust: { display: 'none' },
+    playerLose: { display: 'flex' },
+    playerButtons: { display: 'flex' },
     money: {
       betMoney: '$5',
       totalMoney: 1000,
@@ -451,21 +453,35 @@ class Background extends React.Component {
   //   console.log({ deckOfCards });
   // };
 
+  checkMoney = () => {
+    if (this.state.money.totalMoney == 0) {
+      const money = this.state.money;
+      money.betMoney = 'You have run out of money and lost';
+      let playerLose = this.state.playerLose;
+      playerLose = { display: 'none' };
+      this.setState({ money, playerLose });
+    } else {
+      setTimeout(this.handleReset, 0);
+    }
+  };
+
   checkPlayerTotal = () => {
     let playerTotal = this.state.playerTotal;
     const playerCards = [...this.state.playerCards];
-    if (this.state.playerCards.length == 2 && playerTotal == 21) {
-      console.log('Blackjack!');
-      // Handle Blackjack
-    } else if (playerTotal > 21) {
-      console.log('Over 21');
-      const aces = playerCards.filter((card) => card.value == 11);
+    const money = this.state.money;
+    const betMoney = this.state.money.betMoney;
+    const aces = playerCards.filter((card) => card.value == 11);
+    if (playerTotal > 21) {
       if (aces.length == 0) {
         console.log('playerBust');
         let playerBust = this.state.playerBust;
         playerBust = { display: 'block' };
-        setTimeout(this.setState({ playerBust }), 1000);
-        setTimeout(this.handleReset, 3000);
+        let playerButtons = this.state.playerButtons;
+        playerButtons = { display: 'none' };
+        money.totalMoney -= parseInt(this.state.money.betMoney.slice(1));
+        money.betMoney = `BUST -${betMoney}`;
+        this.setState({ money, playerBust, playerButtons });
+        setTimeout(this.checkMoney, 3000);
       } else {
         playerCards[playerCards.indexOf(aces[0])].value = 1;
         this.setState({ playerCards });
@@ -475,6 +491,13 @@ class Background extends React.Component {
         }
         this.setState({ playerTotal });
       }
+    } else if (this.state.playerCards.length == 2 && playerTotal == 21) {
+      money.totalMoney += Math.floor(parseInt(money.betMoney.slice(1)) * 1.5);
+      money.betMoney = `BLACKJACK +${Math.floor(
+        parseInt(betMoney.slice(1)) * 1.5
+      )}`;
+      this.setState({ money });
+      setTimeout(this.handleReset, 3000);
     } else {
       return;
     }
@@ -498,7 +521,7 @@ class Background extends React.Component {
     setTimeout(this.checkPlayerTotal, 0);
   };
 
-  handleDealerHit = () => {
+  handleDealerHit = (once = false) => {
     const deckOfCards = [...this.state.deckOfCards];
     const availableCards = deckOfCards.filter((card) => !card.used);
     const card =
@@ -509,10 +532,10 @@ class Background extends React.Component {
     dealerCards.push(deckOfCards[deckOfCards.indexOf(card)]);
     let dealerTotal = this.state.dealerTotal;
     dealerTotal += deckOfCards[deckOfCards.indexOf(card)].value;
-    this.setState({ dealerTotal });
-    this.setState({ deckOfCards });
-    this.setState({ dealerCards });
-    this.setState({ dealerTotal });
+    this.setState({ dealerTotal, deckOfCards, dealerCards, dealerTotal });
+    if (!once) {
+      setTimeout(this.checkDealerTotal, 500);
+    }
   };
 
   handleBet = (amount) => {
@@ -555,61 +578,56 @@ class Background extends React.Component {
     this.setState({ playingTime });
     setTimeout(this.handlePlayerHit, 500);
     setTimeout(this.handlePlayerHit, 500);
-    setTimeout(this.handleDealerHit, 1000);
+    setTimeout(this.handleDealerHit(true), 1000);
   };
 
   checkDealerTotal = () => {
     let dealerTotal = this.state.dealerTotal;
     const dealerCards = [...this.state.dealerCards];
-    if (dealerTotal < 21) {
-      if (dealerTotal < 17) {
-        setTimeout(this.handleDealerHit, 500);
-        setTimeout(this.checkDealerTotal, 1000);
-      } else if (dealerTotal >= 17) {
-        const aces = dealerCards.filter((card) => card.value == 11);
-        if (aces.length == 0) {
-          console.log('Checking Winner');
-          setTimeout(this.checkWinner, 1000);
-        } else {
-          dealerCards[dealerCards.indexOf(aces[0])].value = 1;
-          this.setState({ dealerCards });
-          dealerTotal = 0;
-          for (let card of this.state.dealerCards) {
-            dealerTotal += card.value;
-          }
-          this.setState({ dealerTotal });
-          setTimeout(this.checkDealerTotal, 1000);
+    const money = this.state.money;
+    const betMoney = this.state.money.betMoney;
+    const aces = dealerCards.filter((card) => card.value == 11);
+    if (dealerTotal > 21) {
+      if (aces.length == 0) {
+        console.log('dealerBust');
+        let dealerBust = this.state.dealerBust;
+        dealerBust = { display: 'block' };
+        money.totalMoney -= parseInt(this.state.money.betMoney.slice(1));
+        money.betMoney = `DEALER BUST +${betMoney}`;
+        this.setState({ money });
+        this.setState({ dealerBust });
+      } else {
+        dealerCards[dealerCards.indexOf(aces[0])].value = 1;
+        this.setState({ dealerCards });
+        dealerTotal = 0;
+        for (let card of this.state.dealerCards) {
+          dealerTotal += card.value;
         }
+        this.setState({ dealerTotal });
       }
-    } else if (dealerTotal == 21) {
-      console.log('Checking Winner');
-      setTimeout(this.checkWinner, 1000);
+    } else if (dealerTotal >= 17) {
+      setTimeout(this.checkWinner, 0);
     } else {
-      console.log('Dealer Bust');
-      let dealerBust = this.state.dealerBust;
-      dealerBust = { display: 'block' };
-      setTimeout(this.setState({ dealerBust }), 1000);
-      const money = this.state.money;
-      money.totalMoney += parseInt(this.state.money.betMoney.slice(1)) * 2;
-      setTimeout(this.setState({ money }), 1000);
-      setTimeout(this.handleReset, 3000);
+      setTimeout(this.handleDealerHit, 500);
     }
   };
 
   checkWinner = () => {
     const money = this.state.money;
+    const betMoney = this.state.money.betMoney;
     if (this.state.dealerTotal > this.state.playerTotal) {
+      console.log('Lose');
       money.totalMoney -= parseInt(this.state.money.betMoney.slice(1));
-      money.betMoney = 'LOSE';
+      money.betMoney = `LOSE -${betMoney}`;
       this.setState({ money });
-      setTimeout(this.handleReset, 3000);
+      setTimeout(this.checkMoney, 3000);
     } else if (this.state.dealerTotal == this.state.playerTotal) {
       money.betMoney = 'TIE';
       this.setState({ money });
       setTimeout(this.handleReset, 3000);
-    } else {
-      money.totalMoney += parseInt(this.state.money.betMoney.slice(1)) * 2;
-      money.betMoney = 'WIN';
+    } else if (this.state.dealerTotal < this.state.playerTotal) {
+      money.totalMoney += parseInt(this.state.money.betMoney.slice(1));
+      money.betMoney = `WIN +${betMoney}`;
       this.setState({ money });
       setTimeout(this.handleReset, 3000);
     }
@@ -620,10 +638,10 @@ class Background extends React.Component {
     coverCard = { display: 'none' };
     setTimeout(this.setState({ coverCard }), 2000);
     setTimeout(this.handleDealerHit, 500);
-    setTimeout(this.checkDealerTotal, 1000);
   };
 
   handleReset = () => {
+    let deckOfCards = this.state.deckOfCards;
     let betting = this.state.betting;
     let coverCard = this.state.coverCard;
     let playerBust = this.state.playerBust;
@@ -634,8 +652,32 @@ class Background extends React.Component {
     let playerTotal = this.state.playerTotal;
     let dealerTotal = this.state.dealerTotal;
     let playingTime = this.state.playingTime;
+    let playerButtons = this.state.playerButtons;
+    if (deckOfCards.filter((card) => card.used == false).length < 13) {
+      console.log('reshuffling');
+      for (let card of deckOfCards) {
+        card.used = false;
+      }
+      this.setState({ deckOfCards });
+      money.betMoney = 'Reshuffling';
+      this.setState({ money });
+      setTimeout(() => {
+        money = {
+          betMoney: '$5',
+          totalMoney: this.state.money.totalMoney,
+        };
+        this.setState({ money });
+      }, 2000);
+    } else {
+      money = {
+        betMoney: '$5',
+        totalMoney: this.state.money.totalMoney,
+      };
+      this.setState({ money });
+    }
     playerCards = [];
     dealerCards = [];
+    playerButtons = { display: 'flex' };
     playerTotal = 0;
     dealerTotal = 0;
     betting = { display: 'block' };
@@ -643,28 +685,24 @@ class Background extends React.Component {
     playerBust = { display: 'none' };
     dealerBust = { display: 'none' };
     playingTime = { display: 'none' };
-    money = {
-      betMoney: '$5',
-      totalMoney: this.state.money.totalMoney,
-    };
     this.setState({
       betting,
       coverCard,
       playerBust,
       dealerBust,
-      money,
       playerCards,
       dealerCards,
       playerTotal,
       dealerTotal,
       playingTime,
+      playerButtons,
     });
   };
 
   render() {
     return (
-      <div className='background'>
-        <div className='dealerSection'>
+      <div className='background' style={this.state.youLose}>
+        <div className='dealerSection' style={this.state.playerLose}>
           <Info />
           <Dealer
             dealerCards={this.state.dealerCards}
@@ -676,7 +714,7 @@ class Background extends React.Component {
         <div className='bettingSection'>
           <CurrentBet currentBet={this.state.money.betMoney} />
         </div>
-        <div className='playerSection'>
+        <div className='playerSection' style={this.state.playerLose}>
           <Player
             onHit={this.handlePlayerHit}
             onStay={this.handleStay}
@@ -685,6 +723,7 @@ class Background extends React.Component {
             isTime={this.state.playingTime}
             isBust={this.state.playerBust}
             money={this.state.money.totalMoney}
+            playerButtons={this.state.playerButtons}
           />
           <Betting
             betMoney={this.state.money.betMoney}

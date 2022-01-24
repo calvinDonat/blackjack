@@ -495,7 +495,7 @@ class Background extends React.Component {
     } else if (this.state.playerCards.length == 2 && playerTotal == 21) {
       money.totalMoney += Math.floor(parseInt(money.betMoney.slice(1)) * 1.5);
       money.betMoney = `BLACKJACK +${Math.floor(
-        parseInt(betMoney.slice(1)) * 1.5
+        parseInt(betMoney.slice(1) * 1.5)
       )}`;
       this.setState({ money });
       setTimeout(this.handleReset, 3000);
@@ -593,7 +593,7 @@ class Background extends React.Component {
         console.log('dealerBust');
         let dealerBust = this.state.dealerBust;
         dealerBust = { display: 'block' };
-        money.totalMoney -= parseInt(this.state.money.betMoney.slice(1));
+        money.totalMoney += parseInt(this.state.money.betMoney.slice(1));
         money.betMoney = `DEALER BUST +${betMoney}`;
         this.setState({ money });
         this.setState({ dealerBust });

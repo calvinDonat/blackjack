@@ -490,6 +490,7 @@ class Background extends React.Component {
           playerTotal += card.value;
         }
         this.setState({ playerTotal });
+        setTimeout(this.checkDealerTotal, 1000);
       }
     } else if (this.state.playerCards.length == 2 && playerTotal == 21) {
       money.totalMoney += Math.floor(parseInt(money.betMoney.slice(1)) * 1.5);
@@ -596,6 +597,7 @@ class Background extends React.Component {
         money.betMoney = `DEALER BUST +${betMoney}`;
         this.setState({ money });
         this.setState({ dealerBust });
+        setTimeout(this.handleReset, 3000);
       } else {
         dealerCards[dealerCards.indexOf(aces[0])].value = 1;
         this.setState({ dealerCards });
@@ -604,6 +606,7 @@ class Background extends React.Component {
           dealerTotal += card.value;
         }
         this.setState({ dealerTotal });
+        setTimeout(this.checkDealerTotal, 1000);
       }
     } else if (dealerTotal >= 17) {
       setTimeout(this.checkWinner, 0);
